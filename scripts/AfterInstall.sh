@@ -2,7 +2,7 @@
 set -e
 cd /home/ubuntu/Woloo-Admin-1
 echo "NPM install Started"
-npm install
+npm install --force
 echo "NPM install Completed"
 sudo npm cache clean --force
 echo "NPM Build Started"
