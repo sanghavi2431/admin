@@ -1,0 +1,22 @@
+{
+    "nav": {
+        "singleMenuItem": "Single menu item",
+        "collapseMenu": {
+            "collapseMenu": "Collapse menu item",
+            "item1": "Collapse menu item 1",
+            "item2": "Collapse menu item 2"
+        },
+        "setting": {
+            "admin": "Admin",
+            "general": "General",
+            "site": "Site",
+            "review":"Review"
+        },
+        "dashboard":"Dashboard",
+        "woloos":"Woloo Host",
+        "users":"Woloo Guest",
+        "corporates":"Corporates",
+        "subscription":"Subscription",
+        "voucher":"Voucher Codes"
+    }
+}

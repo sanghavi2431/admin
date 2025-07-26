@@ -1,0 +1,38 @@
+name: Snyk Vulnerability Scan
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  snyk:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps
+
+      - name: Run Snyk Dependency Scan (snyk test)
+        run: |
+          npx snyk test --severity-threshold=low | tee snyk-deps-report.txt
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        continue-on-error: true
+
+      - name: Run Snyk Code Scan (snyk code test)
+        run: |
+          npx snyk code test --severity-threshold=low | tee snyk-code-report.txt
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        continue-on-error: true
+
+      - name: Upload Snyk Reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: snyk-reports
+          path: |
+            snyk-deps-report.txt
+            snyk-code-report.txt

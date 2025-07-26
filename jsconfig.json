@@ -1,0 +1,6 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src"
+  },
+  "include": ["src", "src/views/TaskMangement/dashboard/dashboard/components/dashboard.js"]
+}

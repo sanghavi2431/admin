@@ -1,0 +1,12 @@
+version: 0.0
+os: linux
+
+files:
+  - source: /
+    destination: /home/ubuntu/Woloo-Admin-1 # Adjust based on your EC2 directory structure 
+
+hooks: 
+  AfterInstall:
+    - location: scripts/AfterInstall.sh
+      timeout: 600
+      runas: root
